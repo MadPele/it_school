@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" name="name" /><br>
+        <label>Surname</label>
+        <input type="text" name="surname" /><br>
+        <label>Email</label>
+        <input type="email" name="email" /><br>
+        <label>Github nick</label>
+        <input type="text" name="github_nick" /><br>
+        <label>Group</label>
+        <select name="group">
+            {% for group in groups %}
+            <option value='{{ group.id }}'>{{ group.signature }}</option>
+            {% endfor %}
+
+        </select><br>
+        <input type="submit" value="Send" />
+    </form>
+        <br><br><br><br>
+    <h2>Students list</h2>
+    <ul>
+        {% for student in students %}
+        <li>{{ student.name }} {{ student.surname }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete-student' student.id %}">Usuń</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+</html>

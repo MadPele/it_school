@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>Signature</label>
+        <input type="text" name="signature" /><br>
+        <label>Course type</label><br>
+        <select name="type">
+            {% for type in types %}
+            <option value='{{ type.id }}'>{{ type.name }}</option>
+            {% endfor %}
+
+        </select><br>
+        <input type="submit" value="Send" />
+    </form>
+    <br><br><br><br>
+    <h2>Group list</h2>
+    <ul>
+        {% for group in groups %}
+        <li>{{ group.signature }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete-group' group.id %}">Usuń</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</body>
+</html>
