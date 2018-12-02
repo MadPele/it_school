@@ -9,6 +9,7 @@
     {% block content %}
     <form method="POST">
         {% csrf_token %}
+        <h2><center>Add student:</center></h2>
         <label>Name</label>
         <input type="text" name="name" /><br>
         <label>Surname</label>
@@ -26,8 +27,8 @@
         </select><br>
         <input type="submit" value="Send" />
     </form>
-        <br><br><br><br>
-    <h2>Students list</h2>
+        <br><br><br>
+    <h3>Students list:</h3>
     <ul>
         {% for student in students %}
         <li>{{ student.name }} {{ student.surname }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete-student' student.id %}">Usuń</a></li>

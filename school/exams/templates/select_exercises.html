@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><center>For which exam you wanna see exercises:</center></h3>
+<form method="POST">
+    {% csrf_token %}
+    <select name='exam_id'>
+{% for exam in exams %}
+        <option value="{{ exam.id }}">{{ exam.name }}</option>
+{% endfor %}
+    </select>&nbsp; &nbsp; &nbsp; <input type="submit" value="Go" /> <br><br>
+</form>
+</body>
+</html>

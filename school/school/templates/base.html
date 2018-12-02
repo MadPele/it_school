@@ -10,9 +10,11 @@
             <ul>
                 <li><a href="{% url 'list-type' %}">Courses types</a></li>
                 <li><a href="{% url 'list-group' %}">Groups</a></li>
-                <li><a href="">Students</a></li>
-                <li><a href="">Exams</a></li>
-                <li><a href="">Exercises</a></li>
+                <li><a href="{% url 'list-students' %}">Students</a></li>
+                <li><a href="{% url 'list-exams' %}">Exams</a></li>
+                <li><a href="{% url 'add-exercises' %}">Add exercise</a></li>
+                <li><a href="{% url 'select-exercises' %}">Show exercises</a></li>
+                <li><a href="{% url 'data_for_exercises' %}">Results of the exam</a></li><br>
             </ul>
         </nav>
     </header>

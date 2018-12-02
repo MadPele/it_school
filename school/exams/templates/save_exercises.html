@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    Exercise: <select name="exercise">
+        {% for exercise in exercises %}
+        <option value="{{ exercise.id }}">{{ exercise.num }}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="number" step="1" min="0" name="points" /><br><br>
+    <input type="submit" value="Add"><br><br><br>
+
+</form>
+<h3>{{ student.name }} {{ student.surname }} - {{ exam.name }}:</h3><br>
+{% for exe in exe_stu %}
+Exercise number: {{ exe.exercise.num }}&nbsp; &nbsp; &nbsp; &nbsp;
+<a href="{% url 'delete_stu_exe' exe.id %}">Delete</a><br>
+Points earned: {{ exe.points }}<br><br>
+{% endfor %}
+<br><a href="{% url 'data_for_exercises' %}">Back</a>
+
+{% endblock %}
+
+</body>
+</html>

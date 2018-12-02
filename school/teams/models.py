@@ -67,7 +67,7 @@ class Student(models.Model):
     )
 
     def __str__(self):
-        return f'{self.name} {self.surname}: {self.github_nick}'
+        return f'{self.name} {self.surname}("{self.github_nick}")'
 
     class Meta:
         verbose_name = 'Student'

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h2><center>{{ name.name }} exercises:</center></h2><br>
+{% for exercise in exercises %}
+
+<b>Exercise number:</b> {{ exercise.num }}&nbsp; &nbsp; &nbsp; &nbsp;
+<a href="{% url 'delete_exercise' exercise.id %}">Delete</a><br>
+<b>Max points:</b> {{ exercise.points }}<br>
+<b>Description:</b> {{ exercise.description }}<br><br>
+
+{% endfor %}
+{% endblock %}
+</body>
+</html>

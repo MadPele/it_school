@@ -9,6 +9,7 @@
     {% block content %}
     <form method="POST">
         {% csrf_token %}
+        <h2><center>Add group:</center></h2>
         <label>Signature</label>
         <input type="text" name="signature" /><br>
         <label>Course type</label><br>
@@ -20,8 +21,8 @@
         </select><br>
         <input type="submit" value="Send" />
     </form>
-    <br><br><br><br>
-    <h2>Group list</h2>
+    <br><br><br>
+    <h3>Group list:</h3>
     <ul>
         {% for group in groups %}
         <li>{{ group.signature }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete-group' group.id %}">Usuń</a></li>

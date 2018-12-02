@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<h3><center>{{ student.name }} {{ student.surname }} - {{ exam.name }}:</center></center></h3><br>
+{% for exe in exe_stu %}
+Exercise number: {{ exe.exercise.num }}<br>
+Points earned: {{ exe.points }} of {{ exe.exercise.points }}<br><br>
+{% endfor %}
+<br><a href="{% url 'data_for_exercises' %}">Back</a>
+
+{% endblock %}
+</body>
+</html>

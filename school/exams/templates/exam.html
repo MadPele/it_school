@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="POST">
+            {% csrf_token %}
+        <h2><center>Add exam:</center></h2>
+        <label>Exam name:</label>
+        <input type="text" name="name" /><br>
+        <label>Module number:</label>
+        <input type="number" name="number" /><br>
+        <label>Course type:</label>
+        <select name="type">
+            {% for course in courses %}
+            <option value='{{ course.id }}'>{{ course.name }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Send" />
+    </form><br>
+    <h3>All existing exams:</h3>
+    {% for exam in exams %}
+    Exam name: {{ exam.name }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete-exam' exam.id %}">Usuń</a><br>
+    Module number: {{ exam.module_num }}<br>
+    Course type: {{ exam.course_type }}<br><br>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>

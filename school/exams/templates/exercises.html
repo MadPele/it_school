@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <form method="POST">
+            {% csrf_token %}
+        <h2><center>Add exercise:</center></h2>
+        <label>Exercise number:</label>
+        <input type="number" step="1" name="num" min="1" /><br>
+        <label>Max points:</label>
+        <input type="number" step="0.1" name="points" min="1" /><br>
+        <label>Description:</label><br>
+        <textarea name="description" rows="3" cols="50"></textarea><br>
+        <select name="exam">
+            {% for exam in exams %}
+            <option value="{{ exam.id }}">{{ exam.course_type }} -> {{ exam.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Send" />
+
+    </form>
+
+
+
+    {% endblock %}
+
+
+</body>
+</html>

@@ -65,7 +65,7 @@ class ExerciseStudent(models.Model):
     )
 
     def __str__(self):
-        return f'{self.student.github_nick}:{self.exercise.exam.name}(E:{self.exerecise.num}:{self.ponits}/{self.exerecise.points}'
+        return f'{self.student}:{self.exercise}(Earned: {self.points})'
 
     class Meta:
 

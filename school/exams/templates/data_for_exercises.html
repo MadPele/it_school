@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+<h3><center>Choose data:</center></h3>
+Exam:<select name="exam">
+    {% for exam in exams %}
+    <option value="{{ exam.id }}">{{ exam.name }}</option>
+    {% endfor %}
+</select><br>
+Student:<select name="student">
+    {% for student in students %}
+    <option value="{{ student.id }}">{{ student.name }} {{ student.surname }}</option>
+    {% endfor %}
+</select><br><br>
+<input type="submit" name="choose" value="Show results" />
+<input type="submit" name="choose" value="Edit results" />
+</form>
+
+</body>
+</html>
