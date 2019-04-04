@@ -5,7 +5,6 @@ from django.urls import reverse
 from django.shortcuts import redirect
 
 
-
 class CreateCourseType(View):
     template_name = 'course_type.html'
 
